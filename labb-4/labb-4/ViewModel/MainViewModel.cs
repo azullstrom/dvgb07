@@ -441,6 +441,8 @@ namespace labb_4.ViewModel
                         }
                     }
 
+                    ResetProducts();
+                    VisibilityViewModel.IsEditProductEnabled = false;
                     ShowToastNotification("Succé!", $"Produktkvantiteten minskades med {qtyToRemove}.");
                     _cartModel.MainProducts = _productModel.Products;
                     CancelUpdateQtyProduct();
@@ -459,6 +461,8 @@ namespace labb_4.ViewModel
                     ShowToastNotification("Succé!", $"Produktkvantiteten ökades med {qtyToAdd}.");
                     LoadProducts(_productModel.Products);
                     _cartModel.MainProducts = _productModel.Products;
+                    ResetProducts();
+                    VisibilityViewModel.IsEditProductEnabled = false;
                     CancelUpdateQtyProduct();
                 }
             }
