@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="Labb_3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Labb_3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <TextBlock Margin="15,0,0,0" Name="FileName_TextBlock" VerticalAlignment="Center">namnlös.txt</TextBlock>
+        </Grid>
+            
+        <CommandBar Grid.Row="1">
+            <AppBarButton Icon="Add" Label="Ny fil" Click="NewFile_Click"></AppBarButton>
+            <AppBarButton Icon="Save" Label="Spara" Click="SaveFile_Click"></AppBarButton>
+            <AppBarButton Icon="SaveLocal" Label="Spara som..." Click="SaveAs_Click"></AppBarButton>
+            <AppBarButton Icon="OpenFile" Label="Öppna fil" Click="OpenFile_Click"></AppBarButton>
+            <AppBarButton Icon="Clear" Label="Rensa" Click="ClearText"></AppBarButton>
+        </CommandBar>
+        
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled">
+            <TextBox TextWrapping="Wrap" Name="Main_TextBox" TextChanged="MainTextBox_TextChanged" AllowDrop="True" AcceptsReturn="True" DragEnter="ShowDragGraphics_DragEnter" DragLeave="HideDragGraphics_DragLeave" Drop="DropFileInTextBox_Drop"/>
+        </ScrollViewer>
+
+        <Grid Grid.Row="3" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Margin="15,0,0,0" Name="Row_TextBlock" VerticalAlignment="Center">Rader: 1</TextBlock>
+            <TextBlock Grid.Column="1" Margin="15,0,15,0" VerticalAlignment="Center">|</TextBlock>
+            <TextBlock Grid.Column="2" Margin="0,0,0,0" Name="CharacterNoSpace_TextBlock" VerticalAlignment="Center">Utan mellanslag: 0 tecken</TextBlock>
+            <TextBlock Grid.Column="3" Margin="15,0,15,0" VerticalAlignment="Center">|</TextBlock>
+            <TextBlock Grid.Column="4" Margin="0,0,0,0" Name="CharacterSpace_TextBlock" VerticalAlignment="Center">Med mellanslag: 0 tecken</TextBlock>
+            <TextBlock Grid.Column="5" Margin="15,0,15,0" VerticalAlignment="Center">|</TextBlock>
+            <TextBlock Grid.Column="6" Margin="0,0,0,0" Name="WordCount_TextBlock" VerticalAlignment="Center">Antal ord: 0</TextBlock>
+            <TextBlock Grid.Column="7" Margin="15,0,15,0" VerticalAlignment="Center">|</TextBlock>
+            <TextBlock Grid.Column="8" Margin="0,0,0,0" Name="DragAndDrop_TextBlock" VerticalAlignment="Center">Spara fil inaktiverat: Nej</TextBlock>
+        </Grid>
+    </Grid>
+</Page>

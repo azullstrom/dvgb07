@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="Lotto.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lotto"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid HorizontalAlignment="Center" Background="LightGray" Width="1000" Height="300">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Din lottorad: " FontSize="24" FontWeight="Bold" Foreground="Black"/>
+            <TextBox Name="N1_TextBox" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Width="100" Height="30" Background="White" Foreground="Black"/>
+            <TextBox Name="N2_TextBox" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="2" Width="100" Height="30" Background="White" Foreground="Black"/>
+            <TextBox Name="N3_TextBox" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="3" Width="100" Height="30" Background="White" Foreground="Black"/>
+            <TextBox Name="N4_TextBox" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="4" Width="100" Height="30" Background="White" Foreground="Black"/>
+            <TextBox Name="N5_TextBox" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="5" Width="100" Height="30" Background="White" Foreground="Black"/>
+            <TextBox Name="N6_TextBox" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="6" Width="100" Height="30" Background="White" Foreground="Black"/>
+            <TextBox Name="N7_TextBox" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="7" Width="100" Height="30" Background="White" Foreground="Black"/>
+        </Grid>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Antal dragningar: " FontSize="24" FontWeight="Bold" Foreground="Black"/>
+            <TextBox Name="Iterations_TextBox" Margin="10,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Width="200" Height="30" Background="White" Foreground="Black"/>
+            <Button Click="Start_Lotto_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Width="200" Height="50" FontWeight="Bold" Foreground="Black" FontSize="24">Starta Lotto</Button>
+        </Grid>
+
+        <Grid Grid.Row="3" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Margin="5,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Text="5 rätt: " FontSize="24" FontWeight="Bold" Foreground="Black"/>
+            <TextBox IsReadOnly="True" Name="Five_TextBox" Margin="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Width="100" Height="30" Background="White" Foreground="Black"/>
+            <TextBlock Margin="5,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Text="6 rätt: " FontSize="24" FontWeight="Bold" Foreground="Black"/>
+            <TextBox IsReadOnly="True" Name="Six_TextBox" Margin="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="3" Width="100" Height="30" Background="White" Foreground="Black"/>
+            <TextBlock Margin="5,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="4" Text="7 rätt: " FontSize="24" FontWeight="Bold" Foreground="Black"/>
+            <TextBox IsReadOnly="True" Name="Seven_TextBox" Margin="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="5" Width="100" Height="30" Background="White" Foreground="Black"/>
+        </Grid>
+    </Grid>
+</Page>

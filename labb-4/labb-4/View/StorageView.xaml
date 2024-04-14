@@ -1,0 +1,240 @@
+﻿<UserControl
+    x:Class="labb_4.View.StorageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:labb_4.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid Visibility="{Binding VisibilityViewModel.IsStorageViewVisible}" Background="Gray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Margin="10,10,0,0" Text="Lagervy" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold"/>
+                    <Button 
+                        Grid.Column="1" 
+                        HorizontalAlignment="Right" 
+                        Margin="0,10,10,0"
+                        Command="{Binding ToggleFilterDialogCommand}">
+                        <SymbolIcon Grid.Column="1" Symbol="Find" HorizontalAlignment="Right"/>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="1" Visibility="{Binding VisibilityViewModel.IsFilterDialogVisible}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Grid.Column="0" PlaceholderText="Produktnamn" Text="{Binding SearchProductViewModel.SearchNameBox, Mode=TwoWay}"/>
+                    <TextBox Grid.Column="1" PlaceholderText="Lagerstatus" Text="{Binding SearchProductViewModel.SearchQuantityBox, Mode=TwoWay}"/>
+                    <Button Grid.Column="2" Content="Sök" Command="{Binding SearchAndViewProductsCommand}"/>
+                </Grid>
+
+                <!-- Books ListView -->
+                <TextBlock Grid.Row="2" Text="Böcker" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+
+                <StackPanel Grid.Row="3" Orientation="Horizontal" Background="LightGray">
+                    <TextBlock Text="Namn" Width="250" Margin="10,0,0,0" FontWeight="Bold"/>
+                    <TextBlock Text="Pris" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Antal" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Författare" Width="250" FontWeight="Bold"/>
+                    <TextBlock Text="Genre" Width="200" FontWeight="Bold"/>
+                    <TextBlock Text="Format" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Språk" Width="200" FontWeight="Bold"/>
+                </StackPanel>
+
+                <ListView Grid.Row="4" ItemsSource="{Binding ListViewModel.Books}" SelectedItem="{Binding SelectionViewModel.SelectedBook, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" Width="250" />
+                                <TextBlock Text="{Binding Price}" Width="100" />
+                                <TextBlock Text="{Binding Quantity}" Width="100" />
+                                <TextBlock Text="{Binding PID}" Width="100" />
+                                <TextBlock Text="{Binding Author}" Width="250" />
+                                <TextBlock Text="{Binding Genre}" Width="200" />
+                                <TextBlock Text="{Binding Format}" Width="100" />
+                                <TextBlock Text="{Binding Language}" Width="200" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Movies ListView -->
+                <TextBlock Grid.Row="5" Text="Filmer" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+
+                <StackPanel Grid.Row="6" Orientation="Horizontal" Background="LightGray">
+                    <TextBlock Text="Namn" Width="250" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock Text="Pris" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Antal" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Format" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Speltid" Width="100" FontWeight="Bold"/>
+                </StackPanel>
+
+                <ListView Grid.Row="7" ItemsSource="{Binding ListViewModel.Movies}" SelectedItem="{Binding SelectionViewModel.SelectedMovie, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" Width="250" />
+                                <TextBlock Text="{Binding Price}" Width="100" />
+                                <TextBlock Text="{Binding Quantity}" Width="100" />
+                                <TextBlock Text="{Binding PID}" Width="100" />
+                                <TextBlock Text="{Binding Format}" Width="100" />
+                                <TextBlock Text="{Binding Time}" Width="100" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Games ListView -->
+                <TextBlock Grid.Row="8" Text="Spel" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+
+                <StackPanel Grid.Row="9" Orientation="Horizontal" Background="LightGray">
+                    <TextBlock Text="Namn" Width="250" Margin="10,0,0,0" FontWeight="Bold"/>
+                    <TextBlock Text="Pris" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Antal" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Plattform" Width="250" FontWeight="Bold"/>
+                </StackPanel>
+
+                <ListView Grid.Row="10" ItemsSource="{Binding ListViewModel.Games}" SelectedItem="{Binding SelectionViewModel.SelectedGame, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" Width="250" />
+                                <TextBlock Text="{Binding Price}" Width="100" />
+                                <TextBlock Text="{Binding Quantity}" Width="100" />
+                                <TextBlock Text="{Binding PID}" Width="100" />
+                                <TextBlock Text="{Binding Platform}" Width="250" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <Grid Grid.Column="1" Width="300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button 
+                    Grid.Row="0" 
+                    CornerRadius="20"
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Width="200" 
+                    Height="100" 
+                    Command="{Binding ToggleAddProductViewCommand}"
+                    Background="IndianRed"
+                    Content="Lägg till produkt"/>
+                <Button 
+                    Grid.Row="1" 
+                    CornerRadius="20"
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Width="200" 
+                    Height="100"
+                    Margin="0,20,0,20"
+                    Command="{Binding ToggleAddDeliveryViewCommand}"
+                    Background="IndianRed"
+                    Content="Lägg till leverans">
+                </Button>
+                <Button 
+                    Grid.Row="2" 
+                    CornerRadius="20"
+                    HorizontalAlignment="Center"
+                    Width="100" 
+                    Height="100" 
+                    Margin="0,20,0,20"
+                    Command="{Binding ToggleRemoveProductDialogCommand}"
+                    IsEnabled="{Binding VisibilityViewModel.IsEditProductEnabled}"
+                    Background="LightGray">
+                    <SymbolIcon Symbol="Delete"/>
+                </Button>
+                <Button 
+                    Grid.Row="3" 
+                    CornerRadius="20"
+                    HorizontalAlignment="Center"
+                    Width="100" 
+                    Height="100" 
+                    Margin="0,20,0,20"
+                    Command="{Binding ToggleIncreaseQtyDialogCommand}"
+                    IsEnabled="{Binding VisibilityViewModel.IsEditProductEnabled}"
+                    Background="LightGray">
+                    <SymbolIcon Symbol="Add"/>
+                </Button>
+                <Button 
+                    Grid.Row="4" 
+                    CornerRadius="20"
+                    HorizontalAlignment="Center"
+                    Width="100" 
+                    Height="100"
+                    Margin="0,20,0,20"
+                    Command="{Binding ToggleDecreaseQtyDialogCommand}"
+                    IsEnabled="{Binding VisibilityViewModel.IsEditProductEnabled}"
+                    Background="LightGray">
+                    <SymbolIcon Symbol="Remove"/>
+                </Button>
+                
+                <Button 
+                    Grid.Row="5" 
+                    CornerRadius="20"
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Width="200" 
+                    Height="100" 
+                    Command="{Binding ToggleViewCommand}"
+                    Background="IndianRed"
+                    Content="Kassavy"/>
+            </Grid>
+        </Grid>
+
+        <!-- Add Product View -->
+        <local:AddProductView/>
+        
+        <!-- Add Delivery View -->
+        <local:AddDeliveryView/>
+
+        <!-- Dialogs -->
+        <local:IncreaseQtyDialog/>
+        <local:DecreaseQtyDialog/>
+        <local:RemoveProductDialog/>
+    </Grid>
+</UserControl>
