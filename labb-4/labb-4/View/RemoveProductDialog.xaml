@@ -43,7 +43,8 @@
                         Margin="10" 
                         HorizontalAlignment="Center"
                         Text="Är du säker på att du vill ta bort denna produkt från systemet?"
-                        TextWrapping="Wrap"/>
+                        TextWrapping="Wrap"
+                        Foreground="Black"/>
 
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
@@ -57,7 +58,8 @@
                             Content="Ja" 
                             Margin="10"
                             Width="150"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Center"
+                            Foreground="Black"/>
 
                         <!-- Secondary Button -->
                         <Button 
@@ -66,7 +68,8 @@
                             Content="Nej" 
                             Margin="10"
                             Width="150"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Center"
+                            Foreground="Black"/>
                     </Grid>
                 </Grid>
             </Popup>

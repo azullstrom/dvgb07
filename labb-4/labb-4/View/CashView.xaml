@@ -35,7 +35,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Margin="10,10,0,0" Text="Kassavy" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="0" Margin="10,10,0,0" Text="Kassavy" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold" Foreground="Black"/>
                     <Button 
                         Grid.Column="1" 
                         HorizontalAlignment="Right" 
@@ -51,91 +51,91 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <TextBox Grid.Column="0" PlaceholderText="Produktnamn" Text="{Binding SearchProductViewModel.SearchNameBox, Mode=TwoWay}"/>
                     <TextBox Grid.Column="1" PlaceholderText="Lagerstatus" Text="{Binding SearchProductViewModel.SearchQuantityBox, Mode=TwoWay}"/>
                     <Button Grid.Column="2" Content="Sök" Command="{Binding SearchAndViewProductsCommand}"/>
                 </Grid>
-                    
-                
+
+
                 <!-- Books ListView -->
-                <TextBlock Grid.Row="2" Text="Böcker" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Grid.Row="2" Text="Böcker" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black"/>
 
                 <StackPanel Grid.Row="3" Orientation="Horizontal" Background="LightGray">
-                    <TextBlock Text="Namn" Width="250" Margin="10,0,0,0" FontWeight="Bold"/>
-                    <TextBlock Text="Pris" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Antal" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Författare" Width="250" FontWeight="Bold"/>
-                    <TextBlock Text="Genre" Width="200" FontWeight="Bold"/>
-                    <TextBlock Text="Format" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Språk" Width="200" FontWeight="Bold"/>
+                    <TextBlock Text="Namn" Width="250" Margin="10,0,0,0" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Pris" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Antal" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Författare" Width="250" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Genre" Width="200" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Format" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Språk" Width="200" FontWeight="Bold" Foreground="Black"/>
                 </StackPanel>
 
                 <ListView Grid.Row="4" ItemsSource="{Binding ListViewModel.Books}" SelectedItem="{Binding SelectionViewModel.SelectedBook, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Name}" Width="250" />
-                                <TextBlock Text="{Binding Price}" Width="100" />
-                                <TextBlock Text="{Binding Quantity}" Width="100" />
-                                <TextBlock Text="{Binding PID}" Width="100" />
-                                <TextBlock Text="{Binding Author}" Width="250" />
-                                <TextBlock Text="{Binding Genre}" Width="200" />
-                                <TextBlock Text="{Binding Format}" Width="100" />
-                                <TextBlock Text="{Binding Language}" Width="200" />
+                                <TextBlock Text="{Binding Name}" Width="250" Foreground="Black"/>
+                                <TextBlock Text="{Binding Price}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding Quantity}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding PID}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding Author}" Width="250" Foreground="Black"/>
+                                <TextBlock Text="{Binding Genre}" Width="200" Foreground="Black"/>
+                                <TextBlock Text="{Binding Format}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding Language}" Width="200" Foreground="Black"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
 
                 <!-- Movies ListView -->
-                <TextBlock Grid.Row="5" Text="Filmer" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Grid.Row="5" Text="Filmer" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black"/>
 
                 <StackPanel Grid.Row="6" Orientation="Horizontal" Background="LightGray">
-                    <TextBlock Text="Namn" Width="250" Margin="10,0,0,0" FontWeight="Bold" />
-                    <TextBlock Text="Pris" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Antal" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Format" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Speltid" Width="100" FontWeight="Bold"/>
+                    <TextBlock Text="Namn" Width="250" Margin="10,0,0,0" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Pris" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Antal" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Format" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Speltid" Width="100" FontWeight="Bold" Foreground="Black"/>
                 </StackPanel>
 
                 <ListView Grid.Row="7" ItemsSource="{Binding ListViewModel.Movies}" SelectedItem="{Binding SelectionViewModel.SelectedMovie, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Name}" Width="250" />
-                                <TextBlock Text="{Binding Price}" Width="100" />
-                                <TextBlock Text="{Binding Quantity}" Width="100" />
-                                <TextBlock Text="{Binding PID}" Width="100" />
-                                <TextBlock Text="{Binding Format}" Width="100" />
-                                <TextBlock Text="{Binding Time}" Width="100" />
+                                <TextBlock Text="{Binding Name}" Width="250" Foreground="Black"/>
+                                <TextBlock Text="{Binding Price}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding Quantity}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding PID}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding Format}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding Time}" Width="100" Foreground="Black"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
 
                 <!-- Games ListView -->
-                <TextBlock Grid.Row="8" Text="Spel" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Grid.Row="8" Text="Spel" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black"/>
 
                 <StackPanel Grid.Row="9" Orientation="Horizontal" Background="LightGray">
-                    <TextBlock Text="Namn" Width="250" Margin="10,0,0,0" FontWeight="Bold"/>
-                    <TextBlock Text="Pris" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Antal" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold"/>
-                    <TextBlock Text="Plattform" Width="250" FontWeight="Bold"/>
+                    <TextBlock Text="Namn" Width="250" Margin="10,0,0,0" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Pris" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Antal" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Varunummer" Width="100" FontWeight="Bold" Foreground="Black"/>
+                    <TextBlock Text="Plattform" Width="250" FontWeight="Bold" Foreground="Black"/>
                 </StackPanel>
 
                 <ListView Grid.Row="10" ItemsSource="{Binding ListViewModel.Games}" SelectedItem="{Binding SelectionViewModel.SelectedGame, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Name}" Width="250" />
-                                <TextBlock Text="{Binding Price}" Width="100" />
-                                <TextBlock Text="{Binding Quantity}" Width="100" />
-                                <TextBlock Text="{Binding PID}" Width="100" />
-                                <TextBlock Text="{Binding Platform}" Width="250" />
+                                <TextBlock Text="{Binding Name}" Width="250" Foreground="Black"/>
+                                <TextBlock Text="{Binding Price}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding Quantity}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding PID}" Width="100" Foreground="Black"/>
+                                <TextBlock Text="{Binding Platform}" Width="250" Foreground="Black"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -162,7 +162,8 @@
                     Width="200" 
                     Height="100" 
                     Background="IndianRed"
-                    Content="Lägg till i varukorg"/>
+                    Content="Lägg till i varukorg"
+                    Foreground="Black"/>
 
                 <Grid 
                     Grid.Row="1" 
@@ -183,21 +184,21 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Varukorg" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    <TextBlock Text="Varukorg" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
 
                     <StackPanel Grid.Row="1" Orientation="Horizontal" Background="LightGray">
-                        <TextBlock Text="Namn" Width="165" FontWeight="Bold" Margin="10,0,0,0"/>
-                        <TextBlock Text="Pris" Width="50" FontWeight="Bold"/>
-                        <TextBlock Text="Antal" Width="50" FontWeight="Bold"/>
+                        <TextBlock Text="Namn" Width="165" FontWeight="Bold" Margin="10,0,0,0" Foreground="Black"/>
+                        <TextBlock Text="Pris" Width="50" FontWeight="Bold" Foreground="Black"/>
+                        <TextBlock Text="Antal" Width="50" FontWeight="Bold" Foreground="Black"/>
                     </StackPanel>
 
                     <ListView Grid.Row="2" ItemsSource="{Binding ListViewModel.CartItems}" SelectedItem="{Binding SelectionViewModel.SelectedCartItem, Mode=TwoWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Name}" Width="175"/>
-                                    <TextBlock Text="{Binding Price}" Width="50"/>
-                                    <TextBlock Text="{Binding Quantity}" Width="50"/>
+                                    <TextBlock Text="{Binding Name}" Width="175" Foreground="Black"/>
+                                    <TextBlock Text="{Binding Price}" Width="50" Foreground="Black"/>
+                                    <TextBlock Text="{Binding Quantity}" Width="50" Foreground="Black"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -259,7 +260,8 @@
                         Margin="0,0,0,20"
                         Command="{Binding SubmitCartOrderCommand}"
                         Background="LightGray"
-                        Content="Lägg order">
+                        Content="Lägg order"
+                        Foreground="Black">
                     </Button>
                 </Grid>
 
@@ -274,7 +276,8 @@
                     Height="100" 
                     Command="{Binding ToggleReturnProductViewCommand}"
                     Background="IndianRed"
-                    Content="Returnera produkt"/>
+                    Content="Returnera produkt"
+                    Foreground="Black"/>
 
                 <Button 
                     Grid.Row="3"
@@ -287,13 +290,14 @@
                     Height="100" 
                     Command="{Binding ToggleViewCommand}"
                     Background="IndianRed"
-                    Content="Lagervy"/>
+                    Content="Lagervy"
+                    Foreground="Black"/>
             </Grid>
         </Grid>
 
         <!-- Save Receipt View -->
         <local:SaveReceiptView/>
-        
+
         <!-- Return Product View -->
         <local:ReturnProductView/>
     </Grid>

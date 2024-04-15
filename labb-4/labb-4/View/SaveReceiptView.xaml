@@ -43,16 +43,17 @@
                     Margin="10" 
                     HorizontalAlignment="Center"
                     Text="Skriva ut kvitto?"
-                    TextWrapping="Wrap"/>
+                    TextWrapping="Wrap"
+                    Foreground="Black"/>
 
                     <Grid Grid.Row="1">
                         <ListView Grid.Row="2" ItemsSource="{Binding ListViewModel.CartItems}" IsEnabled="False" SelectionMode="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Name}" Width="175"/>
-                                        <TextBlock Text="{Binding Price}" Width="50"/>
-                                        <TextBlock Text="{Binding Quantity}" Width="50"/>
+                                        <TextBlock Text="{Binding Name}" Width="175" Foreground="Black"/>
+                                        <TextBlock Text="{Binding Price}" Width="50" Foreground="Black"/>
+                                        <TextBlock Text="{Binding Quantity}" Width="50" Foreground="Black"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -71,7 +72,8 @@
                         Content="Ja" 
                         Margin="10"
                         Width="150"
-                        HorizontalAlignment="Center"/>
+                        HorizontalAlignment="Center"
+                        Foreground="Black"/>
 
                         <!-- Secondary Button -->
                         <Button 
@@ -80,7 +82,8 @@
                         Content="Nej" 
                         Margin="10"
                         Width="150"
-                        HorizontalAlignment="Center"/>
+                        HorizontalAlignment="Center"
+                        Foreground="Black"/>
                     </Grid>
                 </Grid>
             </Popup>

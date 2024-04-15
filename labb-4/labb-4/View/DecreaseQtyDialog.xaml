@@ -42,14 +42,15 @@
                         FontWeight="Bold"
                         Margin="10" 
                         HorizontalAlignment="Center"
-                        Text="Hur stort antal vill du ta bort av denna produkt?"/>
+                        Text="Hur stort antal vill du ta bort av denna produkt?" Foreground="Black"/>
 
                     <!-- TextBox -->
                     <TextBox 
                         Grid.Row="1" 
                         Text="{Binding ProductViewModel.ProductQuantityTextBox, Mode=TwoWay}"
                         PlaceholderText="Skriv antal" 
-                        Margin="10"/>
+                        Margin="10"
+                        Foreground="Black"/>
 
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
@@ -63,7 +64,8 @@
                             Command="{Binding DecreaseQuantityCommand}"
                             Margin="10"
                             Width="150"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Center"
+                            Foreground="Black"/>
 
                         <!-- Secondary Button -->
                         <Button 
@@ -72,7 +74,8 @@
                             Command="{Binding CancelUpdateQtyProductCommand}" 
                             Margin="10"
                             Width="150"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Center"
+                            Foreground="Black"/>
                     </Grid>
                 </Grid>
             </Popup>

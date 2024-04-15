@@ -34,25 +34,25 @@
                 <!-- Book Template -->
                 <Grid Grid.Row="1" Visibility="{Binding VisibilityViewModel.IsBookTemplateVisible}" Background="Gray">
                     <StackPanel>
-                        <TextBlock Text="Namn*"/>
+                        <TextBlock Text="Namn*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.NameInputColor}" Text="{Binding ProductViewModel.NewName, Mode=TwoWay}" PlaceholderText="t.ex. Arvtagaren"/>
 
-                        <TextBlock Text="Pris*"/>
+                        <TextBlock Text="Pris*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.PriceInputColor}" Text="{Binding ProductViewModel.NewPrice, Mode=TwoWay}" PlaceholderText="t.ex. 100"/>
 
-                        <TextBlock Text="Antal*"/>
+                        <TextBlock Text="Antal*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.QuantityInputColor}" Text="{Binding ProductViewModel.NewQuantity, Mode=TwoWay}" PlaceholderText="t.ex. 10"/>
 
-                        <TextBlock Text="Författare"/>
+                        <TextBlock Text="Författare" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.BookAuthorInputColor}" Text="{Binding ProductViewModel.NewBookAuthor, Mode=TwoWay}" PlaceholderText="t.ex. Christopher Paolini"/>
 
-                        <TextBlock Text="Genre"/>
+                        <TextBlock Text="Genre" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.BookGenreInputColor}" Text="{Binding ProductViewModel.NewBookGenre, Mode=TwoWay}" PlaceholderText="t.ex. Fantasy"/>
 
-                        <TextBlock Text="Format"/>
+                        <TextBlock Text="Format" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.BookFormatInputColor}" Text="{Binding ProductViewModel.NewBookFormat, Mode=TwoWay}" PlaceholderText="t.ex. Pocket"/>
 
-                        <TextBlock Text="Språk"/>
+                        <TextBlock Text="Språk" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.BookLanguageInputColor}" Text="{Binding ProductViewModel.NewBookLanguage, Mode=TwoWay}" PlaceholderText="t.ex. Svenska"/>
                     </StackPanel>
                 </Grid>
@@ -60,16 +60,16 @@
                 <!-- Game Template -->
                 <Grid Grid.Row="1" Visibility="{Binding VisibilityViewModel.IsGameTemplateVisible}" Background="Gray">
                     <StackPanel>
-                        <TextBlock Text="Namn*"/>
+                        <TextBlock Text="Namn*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.NameInputColor}" Text="{Binding ProductViewModel.NewName, Mode=TwoWay}" PlaceholderText="t.ex. Warcraft III"/>
 
-                        <TextBlock Text="Pris*"/>
+                        <TextBlock Text="Pris*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.PriceInputColor}" Text="{Binding ProductViewModel.NewPrice, Mode=TwoWay}" PlaceholderText="t.ex. 100"/>
 
-                        <TextBlock Text="Antal*"/>
+                        <TextBlock Text="Antal*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.QuantityInputColor}" Text="{Binding ProductViewModel.NewQuantity, Mode=TwoWay}" PlaceholderText="t.ex. 10"/>
 
-                        <TextBlock Text="Plattform"/>
+                        <TextBlock Text="Plattform" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.GamePlatformInputColor}" Text="{Binding ProductViewModel.NewGamePlatform, Mode=TwoWay}" PlaceholderText="t.ex. PC"/>
                     </StackPanel>
                 </Grid>
@@ -77,19 +77,19 @@
                 <!-- Movie Template -->
                 <Grid Grid.Row="1" Visibility="{Binding VisibilityViewModel.IsMovieTemplateVisible}" Background="Gray">
                     <StackPanel>
-                        <TextBlock Text="Namn*"/>
+                        <TextBlock Text="Namn*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.NameInputColor}" Text="{Binding ProductViewModel.NewName, Mode=TwoWay}" PlaceholderText="t.ex. Dansar med vargar"/>
 
-                        <TextBlock Text="Pris*"/>
+                        <TextBlock Text="Pris*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.PriceInputColor}" Text="{Binding ProductViewModel.NewPrice, Mode=TwoWay}" PlaceholderText="t.ex. 100"/>
 
-                        <TextBlock Text="Antal*"/>
+                        <TextBlock Text="Antal*" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.QuantityInputColor}" Text="{Binding ProductViewModel.NewQuantity, Mode=TwoWay}" PlaceholderText="t.ex. 10"/>
 
-                        <TextBlock Text="Format"/>
+                        <TextBlock Text="Format" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.MovieFormatInputColor}" Text="{Binding ProductViewModel.NewMovieFormat, Mode=TwoWay}" PlaceholderText="t.ex. DVD"/>
 
-                        <TextBlock Text="Speltid (minuter)"/>
+                        <TextBlock Text="Speltid (minuter)" Foreground="Black"/>
                         <TextBox Background="{Binding ColorViewModel.MovieDurationInputColor}" Text="{Binding ProductViewModel.NewMovieDuration, Mode=TwoWay}" PlaceholderText="t.ex. 236"/>
                     </StackPanel>
                 </Grid>
@@ -114,7 +114,7 @@
                     IsEnabled="{Binding VisibilityViewModel.IsAddButtonEnabled}"
                     Command="{Binding AddDeliveryProductCommand}"
                     Background="IndianRed"
-                    Content="Lägg till produkt i leverans"/>
+                    Content="Lägg till produkt i leverans" Foreground="Black"/>
 
                 <Grid 
                     Grid.Row="1" 
@@ -134,21 +134,21 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Leveranslista" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    <TextBlock Text="Leveranslista" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
 
                     <StackPanel Grid.Row="1" Orientation="Horizontal" Background="LightGray">
-                        <TextBlock Text="Namn" Width="165" FontWeight="Bold" Margin="10,0,0,0"/>
-                        <TextBlock Text="Pris" Width="50" FontWeight="Bold"/>
-                        <TextBlock Text="Antal" Width="50" FontWeight="Bold"/>
+                        <TextBlock Text="Namn" Width="165" FontWeight="Bold" Margin="10,0,0,0" Foreground="Black"/>
+                        <TextBlock Text="Pris" Width="50" FontWeight="Bold" Foreground="Black"/>
+                        <TextBlock Text="Antal" Width="50" FontWeight="Bold" Foreground="Black"/>
                     </StackPanel>
 
                     <ListView Grid.Row="2" ItemsSource="{Binding ListViewModel.DeliveryItems}" IsEnabled="False" SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Name}" Width="175"/>
-                                    <TextBlock Text="{Binding Price}" Width="50"/>
-                                    <TextBlock Text="{Binding Quantity}" Width="50"/>
+                                    <TextBlock Text="{Binding Name}" Width="175" Foreground="Black"/>
+                                    <TextBlock Text="{Binding Price}" Width="50" Foreground="Black"/>
+                                    <TextBlock Text="{Binding Quantity}" Width="50" Foreground="Black"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -163,7 +163,7 @@
                         Margin="0,0,0,20"
                         Command="{Binding SubmitDeliveryOrderCommand}"
                         Background="LightGray"
-                        Content="Lägg till ny leverans i systemet">
+                        Content="Lägg till ny leverans i systemet" Foreground="Black">
                     </Button>
                 </Grid>
 
@@ -177,7 +177,7 @@
                 CornerRadius="20"
                 Command="{Binding ToggleAddDeliveryViewCommand}"
                 Background="IndianRed"
-                Content="Tillbaka"/>
+                Content="Tillbaka" Foreground="Black"/>
             </Grid>
         </Grid>
     </Grid>
