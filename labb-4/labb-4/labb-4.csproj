@@ -116,6 +116,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Database\HttpService.cs" />
     <Compile Include="Model\CartModel.cs" />
     <Compile Include="Model\DeliveryModel.cs" />
     <Compile Include="Model\ProductModel.cs" />

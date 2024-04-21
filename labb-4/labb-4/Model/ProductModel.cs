@@ -47,5 +47,10 @@ namespace labb_4.Model
         {
             Products = await _databaseService.ReturnProductToCSVAsync(product);
         }
+
+        internal async Task UpdateStorageFromXmlList(List<Product> products)
+        {
+            Products = await _databaseService.UpdateCSVQtyAndPriceAsync(products);
+        }
     }
 }

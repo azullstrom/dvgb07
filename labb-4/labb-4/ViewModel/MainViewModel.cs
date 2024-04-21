@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml;
 using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Notifications;
@@ -26,11 +27,13 @@ namespace labb_4.ViewModel
         private CartModel _cartModel;
         private DeliveryModel _deliveryModel;
         private int pid;
-        
+        private readonly HttpService _httpService;
+
 
         public MainViewModel(ProductModel productModel)
         {
             _productModel = productModel;
+            _httpService = new HttpService();
             _cartModel = new CartModel(_productModel.Products);
             ColorViewModel = new ColorViewModel();
             VisibilityViewModel = new VisibilityViewModel();
@@ -44,7 +47,7 @@ namespace labb_4.ViewModel
             LoadProducts(_productModel.Products);
         }
 
-// ViewModels
+        // ViewModels
 
         public ColorViewModel ColorViewModel { get; }
 
@@ -59,9 +62,58 @@ namespace labb_4.ViewModel
         public ReceiptViewModel ReceiptViewModel { get; }
 
         public SearchProductViewModel SearchProductViewModel { get; }
-        
 
-// Commands and Functions
+
+        // Commands and Functions
+
+        public ICommand UpdateStorageCommand => new DelegateCommand(async () => await UpdateStorage());
+        public async Task UpdateStorage()
+        {
+            try
+            {
+                List<Product> products = await FetchDataAsync();
+                await _productModel.UpdateStorageFromXmlList(products);
+                LoadProducts(_productModel.Products);
+                _cartModel.MainProducts = _productModel.Products;
+                ResetProducts();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error occurred during storage update: " + ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<List<Product>> FetchDataAsync()
+        {
+            try
+            {
+                string apiUrl = "https://hex.cse.kau.se/~jonavest/csharp-api/";
+                string responseBody = await _httpService.GetAsync(apiUrl);
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(responseBody);
+
+                List<Product> products = new List<Product>();
+
+                foreach (XmlElement element in doc.DocumentElement.SelectNodes("products/*"))
+                {
+                    Product product = new Product(
+                        element.SelectSingleNode("name").InnerText,
+                        int.Parse(element.SelectSingleNode("price").InnerText),
+                        int.Parse(element.SelectSingleNode("stock").InnerText),
+                        int.Parse(element.SelectSingleNode("id").InnerText)
+                    );
+                    products.Add(product);
+                }
+
+                return products;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("Error occurred during HTTP request: " + e.Message);
+                throw;
+            }
+        }
 
         public ICommand ToggleViewCommand => new DelegateCommand(ToggleView);
         private void ToggleView()

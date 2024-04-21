@@ -33,13 +33,21 @@
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Margin="10,10,0,0" Text="Kassavy" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold" Foreground="Black"/>
                     <Button 
                         Grid.Column="1" 
                         HorizontalAlignment="Right" 
-                        Margin="0,10,10,0"
+                        Margin="10,10,10,0"
+                        Command="{Binding UpdateStorageCommand}">
+                        <SymbolIcon Grid.Column="1" Symbol="Refresh" HorizontalAlignment="Right"/>
+                    </Button>
+                    <Button 
+                        Grid.Column="2" 
+                        HorizontalAlignment="Right" 
+                        Margin="10,10,10,0"
                         Command="{Binding ToggleFilterDialogCommand}">
                         <SymbolIcon Grid.Column="1" Symbol="Find" HorizontalAlignment="Right"/>
                     </Button>

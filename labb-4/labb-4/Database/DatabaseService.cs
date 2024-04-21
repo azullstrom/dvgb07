@@ -445,5 +445,63 @@ namespace labb_4.Database
                 return null;
             }
         }
+
+        internal async Task<List<Product>> UpdateCSVQtyAndPriceAsync(List<Product> products)
+        {
+            string updatedContent = "";
+
+            foreach (Product product in products)
+            {
+                string existingContent = await FileIO.ReadTextAsync(file);
+                var existingProduct = FindXmlProduct(product);
+                var productInfoToUpdate = "";
+                var newInfo = "";
+
+                if (existingProduct != null)
+                {
+                    if (existingProduct is Book book)
+                    {
+                        Book existingBook = (Book)existingProduct;
+                        productInfoToUpdate = $"\r\n{existingBook.Name},{existingBook.Price},{existingBook.Quantity},{existingBook.PID},{existingBook.Author},{existingBook.Genre},{existingBook.Format},{existingBook.Language}";
+                        newInfo = $"\r\n{book.Name},{product.Price},{product.Quantity},{existingBook.PID},{book.Author},{book.Genre},{book.Format},{book.Language}";
+                    }
+                    else if (existingProduct is Game game)
+                    {
+                        Game existingGame = (Game)existingProduct;
+                        productInfoToUpdate = $"\r\n{existingGame.Name},{existingGame.Price},{existingGame.Quantity},{existingGame.PID},{existingGame.Platform}";
+                        newInfo = $"\r\n{game.Name},{product.Price},{product.Quantity},{existingGame.PID},{game.Platform}";
+                    }
+                    else if (existingProduct is Movie movie)
+                    {
+                        Movie existingMovie = (Movie)existingProduct;
+                        productInfoToUpdate = $"\r\n{existingMovie.Name},{existingMovie.Price},{existingMovie.Quantity},{existingMovie.PID},{existingMovie.Format},{existingMovie.Time}";
+                        newInfo = $"\r\n{movie.Name},{product.Price},{product.Quantity},{existingMovie.PID},{movie.Format},{movie.Time}";
+                    }
+
+                    updatedContent = existingContent.Replace(productInfoToUpdate, newInfo);
+                    await FileIO.WriteTextAsync(file, updatedContent);
+                }
+            }
+            var updatedContentToList = ParseCSVStringToList(updatedContent);
+
+            return updatedContentToList;
+        }
+
+        private Product FindXmlProduct(Product product)
+        {
+            try
+            {
+                int pid = product.PID;
+
+                var existingProduct = Products.FirstOrDefault(p => p.PID == pid);
+
+                return existingProduct;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error getting product: {e.Message}");
+                return null;
+            }
+        }
     }
 }
