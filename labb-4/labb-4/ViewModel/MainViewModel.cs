@@ -72,10 +72,18 @@ namespace labb_4.ViewModel
             try
             {
                 List<Product> products = await FetchDataAsync();
-                await _productModel.UpdateStorageFromXmlList(products);
-                LoadProducts(_productModel.Products);
-                _cartModel.MainProducts = _productModel.Products;
-                ResetProducts();
+
+                if (products != null)
+                {
+                    await _productModel.UpdateStorageFromXmlList(products);
+                    LoadProducts(_productModel.Products);
+                    _cartModel.MainProducts = _productModel.Products;
+                    ResetProducts();
+                }
+                else
+                {
+                    ShowToastNotification("Felmeddelande", "Uppdatering mot API:t misslyckades.");
+                }
             }
             catch (Exception ex)
             {
@@ -90,6 +98,12 @@ namespace labb_4.ViewModel
             {
                 string apiUrl = "https://hex.cse.kau.se/~jonavest/csharp-api/";
                 string responseBody = await _httpService.GetAsync(apiUrl);
+
+                if (responseBody.Contains("<error>Update requested, but no data filled</error>"))
+                {
+                    return null;
+                }
+
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(responseBody);
 
